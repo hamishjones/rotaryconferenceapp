@@ -40,15 +40,30 @@ function loadSpeakers() {
 function loadNetworking() {
     const networkingContent = document.getElementById('networking-content');
     const attendees = [
-        { name: 'Alice Johnson', contact: 'alice@example.com' },
-        { name: 'Bob Lee', contact: 'bob@example.com' },
+        { 
+            name: 'Alice Johnson', 
+            rotaryClub: 'Rotary Club of Melbourne', 
+            email: 'alice@example.com', 
+            mobile: '+1234567890' 
+        },
+        { 
+            name: 'Bob Lee', 
+            rotaryClub: 'Rotary Club of Sydney', 
+            email: 'bob@example.com', 
+            mobile: '+0987654321' 
+        },
         // Add more attendees here
     ];
 
     attendees.forEach(attendee => {
         const div = document.createElement('div');
         div.className = 'networking-item';
-        div.innerHTML = `<strong>${attendee.name}</strong> - <a href="mailto:${attendee.contact}">${attendee.contact}</a>`;
+        div.innerHTML = `
+            <strong>Name:</strong> ${attendee.name}<br>
+            <strong>Rotary Club:</strong> ${attendee.rotaryClub}<br>
+            <strong>Email:</strong> <a href="mailto:${attendee.email}">${attendee.email}</a><br>
+            <strong>Mobile:</strong> <a href="tel:${attendee.mobile}">${attendee.mobile}</a>
+        `;
         networkingContent.appendChild(div);
     });
 }
